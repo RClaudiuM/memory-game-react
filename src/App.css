@@ -24,7 +24,8 @@ button:hover {
 }
 
 .number-container,
-.bank-container {
+.bank-container,
+.difficulty-container {
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -29,12 +29,12 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-
   const [numOfCards, setNumOfCards] = useState("12");
 
   //ref management
   const numOfCardsRef = useRef();
   const cardBankRef = useRef();
+  const difRef = useRef();
 
   // useEffects
   useEffect(() => {
@@ -58,11 +58,14 @@ function App() {
         });
         resetTurn();
       } else {
+        let dif = Number(difRef.current.value);
         setTimeout(() => {
           resetTurn();
-        }, 250);
+        }, dif);
       }
     }
+
+    // check to see if all cards are turned
     if (cards.every((card) => card.matched) && cards.length > 1) {
       setTimeout(() => {
         alert(`You Won in ${turns} turns!`);
@@ -142,6 +145,22 @@ function App() {
             >
               <option value="0">RPG</option>
               <option value="1">Languages</option>
+            </select>
+          </div>
+          <div className="difficulty-container">
+            <label htmlFor="difficulty">Select difficulty:</label>
+            <select
+              name="difficulty"
+              id="difficulty"
+              ref={difRef}
+              onChange={() => {
+                shuffleCards();
+              }}
+              defaultValue={"1000"}
+            >
+              <option value="1000">Easy</option>
+              <option value="500">Medium</option>
+              <option value="250">Hard</option>
             </select>
           </div>
         </div>
