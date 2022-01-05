@@ -74,14 +74,16 @@ function App() {
 
   // shuffle cards
   const shuffleCards = () => {
-    const numOfCards = Number(
-      document.getElementById("num-of-cards").value / 2
-    );
+    const selectedCards = Number(numOfCardsRef.current.value / 2);
     const cardBank = cardBankRef.current.value;
+
+    // shuffle the current selected card bank
+    cardImages[cardBank].sort(() => 0.5 - Math.random());
+
     // select card pack and double the cards
     const shuffledCards = [
-      ...cardImages[cardBank].slice(0, numOfCards),
-      ...cardImages[cardBank].slice(0, numOfCards),
+      ...cardImages[cardBank].slice(0, selectedCards),
+      ...cardImages[cardBank].slice(0, selectedCards),
     ]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
