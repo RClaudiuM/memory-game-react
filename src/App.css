@@ -1,38 +1,56 @@
 .App {
-  text-align: center;
+  max-width: 860px;
+  margin: 40px auto;
+}
+button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+}
+button:hover {
+  background: #c23866;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.settings-container {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.number-container,
+.bank-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options-container label {
+  margin-right: 1rem;
+}
+
+.options-container select {
+  outline: none;
+  color: white;
+  background-color: #1b1523;
+  border: none;
+  font-size: 1rem;
+  text-align: end;
+}
+
+.card-grid {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
