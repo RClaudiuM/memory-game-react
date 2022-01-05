@@ -22,15 +22,6 @@ const cardImages = [
   ],
 ];
 
-// const cardImages = [
-//   { src: "/img/css.png", matched: false },
-//   { src: "/img/html.png", matched: false },
-//   { src: "/img/js.png", matched: false },
-//   { src: "/img/react.png", matched: false },
-//   { src: "/img/redux.png", matched: false },
-//   { src: "/img/bootstrap.png", matched: false },
-// ];
-
 function App() {
   // state management
   const [cards, setCards] = useState([]);
@@ -87,9 +78,7 @@ function App() {
       document.getElementById("num-of-cards").value / 2
     );
     const cardBank = cardBankRef.current.value;
-    // console.log(cardBankRef.current.value);
-    // cardBank.current;
-    // double the cards
+    // select card pack and double the cards
     const shuffledCards = [
       ...cardImages[cardBank].slice(0, numOfCards),
       ...cardImages[cardBank].slice(0, numOfCards),
@@ -134,9 +123,7 @@ function App() {
               }}
             >
               <option value="4">4</option>
-              <option value="6">6</option>
               <option value="8">8</option>
-              <option value="10">10</option>
               <option value="12">12</option>
             </select>
           </div>
@@ -166,6 +153,7 @@ function App() {
             handleChoice={handleChoice}
             flipped={card === choiceOne || card === choiceTwo || card.matched}
             disabled={disabled}
+            cardBank={cardBankRef.current.value}
           />
         ))}
       </div>
